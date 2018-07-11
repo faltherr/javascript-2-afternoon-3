@@ -37,7 +37,9 @@ first(names, function(firstName){
   return firstName;
 });
 // Do not edit the code above.
-
+function first (arr, cb){
+  return cb(arr[0]);
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -55,7 +57,9 @@ last(names, function(lastName){
   return lastName;
 });
 // Do not edit the code above.
-
+function last (arr, cb){
+  return cb(arr[arr.length-1])
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -66,6 +70,9 @@ last(names, function(lastName){
 */
 
 //Code Here
+function multiply(num1, num2, cb){
+  return cb(num1*num2)
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -85,6 +92,13 @@ multiply(4, 3, function(answer){
 */
 
 //Code Here 
+function contains(array, name, cb){
+  if(array.includes(name)){
+    return cb(true)
+  } else {
+    return cb(false)
+  }
+}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -106,6 +120,14 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+function uniq(arr, cb){
+  var tmp = [];
+  for (var i = 0; i < arr.length; i++){
+      if (tmp.indexOf(arr[i]) == -1){
+          tmp.push(arr[i])
+      }
+  } return cb(tmp);
+}
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -122,7 +144,11 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here 
+//Code Here
+function each(arr,cb){
+  for (var i = 0; i < arr.length; i++){
+      cb(arr[i], i)
+  }}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -140,6 +166,13 @@ each(names, function(item, indice){
 */
 
 // Code here
+function getUserById(array, val, cb){
+  for (i = 0; i<users.length; i++){
+    if (array[i]['id'] === val){
+      return cb(array[i])
+    }
+  }
+}
 
 // Do not edit the code below.
 var users = [
